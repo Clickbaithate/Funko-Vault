@@ -136,7 +136,7 @@ class _FunkoCardState extends State<FunkoCard> {
                 },
               ),
             ),
-            // Collection
+            // Folder
             Positioned(
               top: 40,
               right: 8,
@@ -155,6 +155,7 @@ class _FunkoCardState extends State<FunkoCard> {
                   }
 
                   // Refresh the collections list
+                  widget.onLiked();
                   fetchFolders();
                   widget.onCollectionDelete!();
                 },

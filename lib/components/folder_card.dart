@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:temp/data/colors.dart';
+import 'package:temp/data/folder_colors.dart';
 import 'package:temp/models/folder_model.dart';
 import 'package:temp/screens/folder_items.dart';
 import 'package:temp/services/database.dart';
@@ -18,6 +21,7 @@ class FolderCard extends StatefulWidget {
 class _FolderCardState extends State<FolderCard> {
 
   final DatabaseService _databaseService = DatabaseService.instance;
+  var randomColor = colorsList[Random().nextInt(14)];
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class _FolderCardState extends State<FolderCard> {
             children: [
               // background color of folder card
               Positioned.fill(
-                child: Container(color: blueColor),
+                child: Container(color: randomColor),
               ),
               // name bubble of folder card
               Positioned(
@@ -59,7 +63,7 @@ class _FolderCardState extends State<FolderCard> {
                 left: 12,
                 child: Container(
                   constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.33),
-                  decoration: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(color: randomColor, borderRadius: BorderRadius.circular(5)),
                   child: Padding(
                     padding: EdgeInsets.all(4),
                     child: Text(
