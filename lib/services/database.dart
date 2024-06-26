@@ -23,6 +23,7 @@ class DatabaseService {
 
     final database = await openDatabase(
       databasePath,
+      version: 1,
       onCreate: (db, version) async {
         await db.execute(
           '''
